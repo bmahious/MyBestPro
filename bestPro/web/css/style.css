@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+.title{
+    font-family: Roboto;
+    text-align: center;
+    font-size: 2em;
+    margin: 1em auto;
+    color: #1d2124;
+}
+.title-write{
+   font-family: Roboto;
+}
+.title-description{
+    font-family: Roboto;
+    font-size: 0.8em;
+}
+.title-statut{
+    font-family: Roboto;
+}
+.title-id:hover{
+    color: #fff;
+}
+.title-date{
+    font-family: Roboto;
+}
+.title-action{
+    font-family: Roboto;
+}
+.bout{
+    font-size: 0.85em;
+}
+{% endblock %}

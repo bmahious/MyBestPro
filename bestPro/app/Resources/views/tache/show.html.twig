@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="title">La Tâche</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="col">Id</th>
+                <td class="col-md-2">{{ tache.id }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Titre</th>
+                <td>{{ tache.titre }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Description</th>
+                <td>{{ tache.description }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Statut</th>
+                <td>{{ tache.statut }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div>
+
+    </div>
+        <div class="form-group">
+            <a href="{{ path('tache_index') }}">
+                <button type="submit" class="btn btn-default col-md-2">Retour à la liste</button>
+            </a>
+        </div>
+        <div class="form-group">
+            <a href="{{ path('tache_edit', { 'id': tache.id }) }}">
+                <button type="submit" class="btn btn-success col-md-2">Modifier</button>
+            </a>
+        </div>
+        <div class="form-group">
+            {{ form_start(delete_form) }}
+                <input type="submit" class="btn btn-danger col-md-2" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </div>
+
+{% endblock %}

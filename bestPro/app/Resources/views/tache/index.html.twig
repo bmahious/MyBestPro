@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="title">Liste de tâches</h1>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th  scope="col">Id</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Statut</th>
+                <th scope="col">Actions</th>
+                <th scope="col">Date & Heure</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tache in taches %}
+            <tr>
+                <td class="title-id"><a class="title-id" href="{{ path('tache_show', { 'id': tache.id }) }}">{{ tache.id }}</a></td>
+                <td class="title-write">{{ tache.titre }}</td>
+                <td class="title-description">{{ tache.description }}</td>
+                <td class="title-statut">{{ tache.statut }}</td>
+                <td class="title-action">
+                            <a href="{{ path('tache_show', { 'id': tache.id }) }}">
+                                <button type="submit" class="btn col-md-4 bout">Voir</button>
+                            </a>
+                            <a href="{{ path('tache_edit', { 'id': tache.id }) }}">
+                                <button type="submit" class="btn col-md-5 bout">Modifier</button>
+                            </a>
+                </td>
+                <td class="title-date">{{ tache.date|date("d/m/Y")}} à {{ tache.date|date("H:i", "Europe/Paris") }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            <a href="{{ path('tache_new') }}">
+                <inptut type="button" class="btn btn-success col-md-4">Créer une nouvelle tâche</inptut>
+            </a>
+
+{% endblock %}
